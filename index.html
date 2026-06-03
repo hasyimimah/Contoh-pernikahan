@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Undangan Pernikahan | Fatimah & Alwi - Maluku Utara (WhatsApp Integration)</title>
+    <!-- Google Fonts Mewah -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e8e2d9;
+            font-family: 'Montserrat', sans-serif;
+            padding: 2rem 1rem;
+        }
+
+        /* Container utama */
+        .invitation-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 48px;
+            box-shadow: 0 35px 60px -25px rgba(0,0,0,0.3);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        /* Hero Section - Nuansa Monokrom Maluku Utara */
+        .hero-monochrome {
+            background: linear-gradient(112deg, #1c1a17 0%, #2f2b26 100%);
+            padding: 2.2rem 1.5rem 2rem;
+            text-align: center;
+            color: #f2eadf;
+            position: relative;
+        }
+        .hero-monochrome:before {
+            content: "❦";
+            font-size: 3rem;
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            opacity: 0.12;
+            font-family: serif;
+        }
+        .hero-monochrome:after {
+            content: "❦";
+            font-size: 2.5rem;
+            position: absolute;
+            top: 12px;
+            left: 18px;
+            opacity: 0.12;
+        }
+        .tag-line {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            background: rgba(255,245,220,0.12);
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+        }
+        .hero-monochrome h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+        .couple-name {
+            font-size: 2.4rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            margin: 0.2rem 0;
+            color: #f1e5d2;
+        }
+        .wedding-date-hero {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(220,200,170,0.35);
+            display: inline-block;
+            padding-top: 0.6rem;
+        }
+
+        /* Countdown Timer */
+        .countdown-box {
+            background: #2f2b26;
+            padding: 1.3rem 1rem;
+            text-align: center;
+            color: #f6efe3;
+            border-bottom: 1px solid #5e5342;
+        }
+        .countdown-title {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.3rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .timer-block {
+            background: #1e1b18;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            min-width: 65px;
+            text-align: center;
+        }
+        .timer-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            font-family: 'Montserrat', monospace;
+        }
+        .timer-label {
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+        }
+
+        /* Galeri Prewedding Banyak Foto */
+        .gallery-section {
+            padding: 2rem 1.5rem 1rem;
+            background: #fffdfa;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            text-align: center;
+            color: #2f2a24;
+            margin-bottom: 0.3rem;
+        }
+        .section-desc {
+            text-align: center;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: #a69078;
+            margin-bottom: 1.8rem;
+        }
+        .swiper-gallery {
+            width: 100%;
+            padding-bottom: 40px;
+            border-radius: 32px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .swiper-slide img:hover {
+            transform: scale(1.01);
+        }
+
+        /* Ilustrasi Pasangan (detail) */
+        .couple-illustration {
+            text-align: center;
+            margin: 1rem 0 0.5rem;
+        }
+        .svg-couple {
+            width: 250px;
+            height: auto;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1));
+        }
+
+        /* Informasi Lengkap Acara */
+        .event-info-full {
+            background: #fefaf5;
+            padding: 1.5rem 1.8rem;
+            border-radius: 40px;
+            margin: 1rem 1.5rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            border: 1px solid #ede3d7;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            background: #e9e0d5;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4f3f2e;
+            font-size: 1.3rem;
+        }
+        .info-text {
+            flex: 1;
+        }
+        .info-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        .btn-map {
+            background: none;
+            border: 1px solid #c7b59e;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 6px;
+        }
+        .btn-map:hover {
+            background: #ddd0c0;
+        }
+        /* Peta lokasi (iframe) */
+        .map-embed {
+            margin: 1rem 1.5rem;
+            border-radius: 36px;
+            overflow: hidden;
+            border: 3px solid #f3ede5;
+        }
+        iframe {
+            width: 100%;
+            height: 220px;
+            border: 0;
+        }
+
+        /* Kado & Rekening */
+        .gift-section {
+            background: #f7f2ea;
+            margin: 1.2rem 1.5rem;
+            padding: 1.2rem;
+            border-radius: 40px;
+            text-align: center;
+        }
+        .bank-details {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin: 0.8rem 0;
+        }
+        .bank-card {
+            background: white;
+            padding: 0.6rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        /* RSVP dengan WhatsApp Integration */
+        .rsvp-full {
+            padding: 0.5rem 1.8rem 2rem;
+        }
+        .rsvp-card {
+            background: #fefcf9;
+            border-radius: 44px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.08);
+            border: 1px solid #e7dfd4;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 60px;
+            border: 1px solid #ddd0c0;
+            background: white;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: 0.2s;
+        }
+        .form-group textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #a79074;
+            box-shadow: 0 0 0 2px rgba(167, 130, 92, 0.2);
+        }
+        .btn-submit {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 0.9rem;
+            width: 100%;
+            border-radius: 80px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-submit:hover {
+            background: #128C7E;
+            transform: scale(0.98);
+        }
+        .wa-note {
+            text-align: center;
+            font-size: 0.65rem;
+            margin-top: 12px;
+            color: #6c5d4b;
+        }
+        .footer-copyright {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.65rem;
+            color: #a39482;
+            border-top: 1px solid #e9dfd3;
+        }
+        @media (max-width: 550px) {
+            .hero-monochrome h1 { font-size: 2rem; }
+            .couple-name { font-size: 1.6rem; }
+            .timer-block { min-width: 55px; }
+            .timer-number { font-size: 1.1rem; }
+            .info-row { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="invitation-wrapper">
+    <!-- Header Monokrom Khas Maluku Utara -->
+    <div class="hero-monochrome">
+        <div class="tag-line"><i class="fas fa-feather-alt"></i> The Wedding Of</div>
+        <h1>Pernikahan Suci</h1>
+        <div class="couple-name">Fatimah Zahra & Alwi Maulana</div>
+        <div class="wedding-date-hero">
+            <i class="fas fa-map-marker-alt"></i> Ternate, Maluku Utara &nbsp;|&nbsp; <i class="far fa-calendar-alt"></i> 28 September 2026
+        </div>
+    </div>
+
+    <!-- COUNTDOWN WEDDING -->
+    <div class="countdown-box">
+        <div class="countdown-title"><i class="far fa-hourglass-half"></i> Menuju Hari Bahagia</div>
+        <div class="timer" id="countdownTimer">
+            <div class="timer-block"><span class="timer-number" id="days">00</span><div class="timer-label">Hari</div></div>
+            <div class="timer-block"><span class="timer-number" id="hours">00</span><div class="timer-label">Jam</div></div>
+            <div class="timer-block"><span class="timer-number" id="minutes">00</span><div class="timer-label">Menit</div></div>
+            <div class="timer-block"><span class="timer-number" id="seconds">00</span><div class="timer-label">Detik</div></div>
+        </div>
+    </div>
+
+    <!-- GALERI PREWEDDING (banyak foto - 12 gambar) -->
+    <div class="gallery-section">
+        <div class="section-title">— Prewedding Story —</div>
+        <div class="section-desc">Cinta dalam harmoni monokrom & keindahan Maluku Utara</div>
+        <div class="swiper swiper-gallery">
+            <div class="swiper-wrapper">
+                <!-- 12 foto prewedding tema romantis / monokrom elegan -->
+                <div class="swiper-slide"><img src="https://picsum.photos/id/135/600/450" alt="prewedding1"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/159/600/450" alt="prewedding2"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/43/600/450" alt="prewedding3"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/20/600/450" alt="prewedding4"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/58/600/450" alt="prewedding5"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/56/600/450" alt="prewedding6"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/66/600/450" alt="prewedding7"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/88/600/450" alt="prewedding8"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/99/600/450" alt="prewedding9"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/101/600/450" alt="prewedding10"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/122/600/450" alt="prewedding11"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/142/600/450" alt="prewedding12"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next" style="color: #aa967e;"></div>
+            <div class="swiper-button-prev" style="color: #aa967e;"></div>
+        </div>
+    </div>
+
+    <!-- Ilustrasi Sepasang Pengantin Elegan -->
+    <div class="couple-illustration">
+        <svg class="svg-couple" viewBox="0 0 280 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M85 160 L105 130 L125 160 Z" fill="#ddd2c4" opacity="0.6"/>
+            <circle cx="106" cy="100" r="28" fill="#f1e3d4" />
+            <circle cx="96" cy="98" r="2.5" fill="#8f755c"/>
+            <circle cx="116" cy="98" r="2.5" fill="#8f755c"/>
+            <path d="M103 110 Q106 114 109 110" stroke="#aa8c6e" stroke-width="1.2"/>
+            <rect x="92" y="128" width="28" height="46" rx="10" fill="#2f2b26" />
+            <rect x="164" y="122" width="30" height="52" rx="10" fill="#dbcfbe" />
+            <circle cx="179" cy="95" r="27" fill="#f7ede1" />
+            <circle cx="170" cy="93" r="2.2" fill="#a07f5e"/>
+            <circle cx="188" cy="93" r="2.2" fill="#a07f5e"/>
+            <path d="M175 105 Q179 109 183 105" stroke="#b69270"/>
+            <circle cx="192" cy="85" r="9" fill="#241f1a" />
+            <path d="M130 185 L148 200 L168 185" stroke="#bcaa92" stroke-width="1.5" fill="none"/>
+            <text x="145" y="215" font-size="8" fill="#7c6a56" text-anchor="middle">♡ Jiwa yang bersatu ♡</text>
+        </svg>
+        <p style="font-size: 0.65rem; margin-top: 0px; color:#ad9a84;">Pasangan Pengantin | Fatimah & Alwi</p>
+    </div>
+
+    <!-- Info Lengkap Acara, Jadwal & Peta -->
+    <div class="event-info-full">
+        <div class="info-row">
+            <div class="info-icon"><i class="fas fa-mosque"></i></div>
+            <div class="info-text"><h4>Akad Nikah</h4><p>Senin, 28 September 2026, 09.00 WIT - 10.30 WIT</p></div>
+        </div>
+        <div class="info-row">
+            <div class="info-icon"><i class="fas fa-utensils"></i></div>
+            <div class="info-text"><h4>Resepsi Pernikahan</h4><p>11.00 - 15.00 WIT (Dengan hormat dipersilakan)</p></div>
+        </div>
+        <div class="info-row">
+            <div class="info-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <div class="info-text"><h4>Lokasi</h4><p>Ballroom Grand Dafam & Taman Sasadu, Jl. Pahlawan Revolusi, Santiong, Ternate Tengah, Maluku Utara</p>
+            <button class="btn-map" id="openMapBtn"><i class="fas fa-directions"></i> Buka Google Maps</button></div>
+        </div>
+    </div>
+    <!-- Embed Peta -->
+    <div class="map-embed" id="mapContainer">
+        <iframe src="https://maps.google.com/maps?q=Ternate+Maluku+Utara&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Kirim Doa & Kado (Bank) -->
+    <div class="gift-section">
+        <i class="fas fa-gift" style="font-size: 1.6rem; color:#8f785e;"></i>
+        <h4 style="font-family: 'Playfair Display';">Kirim Hadiah & Doa Restu</h4>
+        <div class="bank-details">
+            <div class="bank-card"><i class="fas fa-university"></i> BNI: 1234567890 a.n Fatimah Zahra</div>
+            <div class="bank-card"><i class="fab fa-paypal"></i> PayPal: alwi.fatimah@wedding</div>
+        </div>
+        <p style="font-size: 0.7rem;">Atau kirim kado secara fisik ke alamat panitia (hubungi kontak di bawah)</p>
+    </div>
+
+    <!-- RSVP Lengkap dengan Form & WhatsApp Integration -->
+    <div class="rsvp-full">
+        <div class="rsvp-card">
+            <h3 style="text-align: center; font-family: 'Playfair Display'; margin-bottom: 0.8rem;">Konfirmasi Kehadiran via WhatsApp</h3>
+            <form id="rsvpFormWA">
+                <div class="form-group"><input type="text" id="namaTamu" placeholder="Nama Lengkap *" required></div>
+                <div class="form-group"><input type="tel" id="telepon" placeholder="Nomor WhatsApp (optional, untuk koordinasi)" value=""></div>
+                <div class="form-group"><select id="kehadiran">
+                    <option value="Hadir">✅ Hadir (Insya Allah)</option>
+                    <option value="Tidak Hadir">🙏 Tidak dapat hadir, namun doa terbaik</option>
+                    <option value="Meragukan">🤔 Belum pasti, akan konfirmasi ulang</option>
+                </select></div>
+                <div class="form-group"><input type="number" id="jumlahTamu" placeholder="Jumlah orang yang hadir (jika hadir)" value="1"></div>
+                <div class="form-group"><textarea rows="2" id="doaUcapan" placeholder="Ucapan doa & restu (contoh: Semoga sakinah mawaddah warahmah...)"></textarea></div>
+                <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> Kirim Konfirmasi via WhatsApp</button>
+            </form>
+            <p class="wa-note"><i class="fas fa-shield-alt"></i> *Data akan dikirim ke panitia melalui WhatsApp. Dengan menekan tombol, Anda akan diarahkan ke WhatsApp untuk mengirim pesan konfirmasi secara instan.</p>
+        </div>
+    </div>
+
+    <!-- Kontak & Footer -->
+    <div class="footer-copyright">
+        <i class="fas fa-phone-alt"></i> Kontak Panitia: 0822-1111-3333 (WhatsApp) &nbsp;|&nbsp; <i class="fab fa-instagram"></i> @fatimah.alwi.wed<br>
+        © 2026 - Pernikahan yang diberkati, Maluku Utara, Tanah Cinta.
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    // ========================
+    // COUNTDOWN TIMER
+    // ========================
+    function updateCountdown() {
+        const weddingDate = new Date(2026, 8, 28, 9, 0, 0); // September = 8
+        const now = new Date();
+        const diff = weddingDate - now;
+        if (diff <= 0) {
+            document.getElementById('days').innerText = '00';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+            return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (86400000)) / (3600000));
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+        document.getElementById('days').innerText = days < 10 ? '0'+days : days;
+        document.getElementById('hours').innerText = hours < 10 ? '0'+hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0'+minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0'+seconds : seconds;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // ========================
+    // SWIPER GALERI BANYAK FOTO
+    // ========================
+    const gallerySwiper = new Swiper('.swiper-gallery', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 18,
+        pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swipe
